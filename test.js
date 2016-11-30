@@ -50,4 +50,26 @@ describe('Array', function() {
             console.log(typeof (typeof 1));
         });
     });
+
+    describe('log sequence with timeout', function () {
+        it('log sequence', function (done) {
+            (function () {
+                console.log("start");
+                console.log(1);
+
+                setTimeout(function () {
+                    console.log(2);
+                    done();
+                }, 1000);
+
+                setTimeout(function () {
+                    console.log(3);
+                }, 0);
+
+                console.log(4);
+
+            })();
+        });
+
+    });
 });
